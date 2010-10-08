@@ -1,0 +1,38 @@
+﻿<Window x:Class="SimpleConductorOneActive.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="550" Background="CornflowerBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Content="New Screen" x:Name="NewScreen" />
+            <TextBlock Text="Current Screen Count:" VerticalAlignment="Center" Padding="10,5,2,5"/>
+            <TextBlock Text="{Binding Items.Count}" VerticalAlignment="Center" Padding="0,5,5,5"/>
+        </StackPanel>
+        <ContentControl Grid.Row="1" x:Name="ActiveItem" HorizontalAlignment="Center"  VerticalAlignment="Center"  Height="200" Width="400" Margin="5" Padding="5"/>
+        <ListBox x:Name='Items' Grid.Row="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Width="60" Margin="5">
+                        <TextBlock Text="Screen Id" FontWeight="Bold"  />
+                        <TextBlock Text='{Binding DisplayName}'  
+                                   Margin='5 5 5 5'   
+                                   Padding="5 5 5 5"
+                                   FontSize='12' 
+                                   TextWrapping="NoWrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation='Horizontal' />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+    </Grid>
+</Window>
