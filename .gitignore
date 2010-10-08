@@ -35,7 +35,5 @@ httpd.parse.errors
 deploy
 deploy/*
 
-# Exclude ALL DLLs?
-*.dll
 
 
